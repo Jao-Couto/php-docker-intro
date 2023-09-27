@@ -35,6 +35,17 @@
   // Chamando o método da classe
   echo $pessoa1->apresentar();  // Saída: Olá, meu nome é Ana e tenho 30 anos.
 
+
+  // Criando um objeto anônimo
+  $objetoAnonimo = new stdClass;
+
+  // Definindo propriedades no objeto
+  $objetoAnonimo->nome = "João";
+  $objetoAnonimo->idade = 25;
+
+  // Acessando propriedades do objeto
+  echo $objetoAnonimo->nome;  // Saída: João
+  echo $objetoAnonimo->idade; // Saída: 25
   ?>
 
 </body>

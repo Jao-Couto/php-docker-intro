@@ -12,65 +12,86 @@
 
   <?php
 
-  // Variáveis em PHP começam com o símbolo $
   $nome = "João";
   $idade = 25;
   $salario = 1500.50;
   $estaChovendo = true;
-  // Você pode imprimir o valor de uma variável usando echo
-  echo "Nome: " . $nome;  // Saída: Nome: João
+  print "Nome: " . $nome;
 
   $cores = ["vermelho", "verde", "azul"];
-  var_dump($cores); // Imprime Array
-  print_r($cores); // Imprime Array
-  // Acessando elementos do array
-  echo $cores[0];  // Saída: vermelho
-  echo $cores[1];  // Saída: verde
-  echo $cores[2];  // Saída: azul
+  ?>
+  <pre>
+  <?php
+  var_dump($cores);
+  ?>
+  </pre>
+
+  <?php
+  echo "<pre>";
+  print_r($cores);
+  echo "</pre>";
+  echo $cores[0];
 
   array_push($cores, "rosa"); // Adiciona ao final do array
-  print_r($cores); // Imprime Array
+  echo "<pre>";
+  var_dump($cores);
+  echo "</pre>";
 
-  $ultimaCor = array_pop($cores); // Remove e retorna "laranja"
-  echo $ultimaCor; // Imprime laranja
-  print_r($cores); // Imprime Array
+  $ultimaCor = array_pop($cores); // Remove último e retorna o valor removido
+  echo $ultimaCor;
+  echo "<pre>";
+  var_dump($cores);
+  echo "</pre>";
 
-  $primeiraCor = array_shift($cores); // Remove e retorna "maçã"
-  echo $primeiraCor; // Imprime maçã
-  print_r($cores); // Imprime Array
+  $primeiraCor = array_shift($cores); // Remove primeiro e retorna o valor removido
+  echo $primeiraCor;
+  echo "<pre>";
+  var_dump($cores);
+  echo "</pre>";
 
 
-  $frutas = ["maçã", "banana"];
-  $coresFrutas = array_merge($cores, $frutas2); // Cria um novo array com toda
-  print_r($coresFrutas); // Imprime Array
+  $frutas = [123, true, 23.1];
+  $coresFrutas = array_merge($cores, $frutas); // Cria um novo array com toda
+  echo "<pre>";
+  var_dump($coresFrutas);
+  echo "</pre>";
 
 
   $numeros = [1, 2, 3, 4, 5];
   $pares = array_filter($numeros, function ($numero) {
     return $numero % 2 == 0;
   }); // Retorna um array com os números pares (2 e 4)
-  print_r($pares); // Imprime Array
+  echo "<pre>";
+  var_dump($pares);
+  echo "</pre>";
 
   $nomes = ["Maria", "João", "Carlos"];
   sort($nomes); // Ordena em ordem alfabética
-  print_r($nomes); // Imprime Array
+  echo "<pre>";
+  var_dump($nomes);
+  echo "</pre>";
 
   // ou
+  $nomes = ["Maria", "João", "Carlos"];
   asort($nomes); // Ordena preservando as chaves associativas
-  print_r($nomes); // Imprime Array
+  echo "<pre>";
+  var_dump($nomes);
+  echo "</pre>";
 
 
   $frutas = ["maçã", "banana", "laranja"];
   $frutasInvertidas = array_reverse($frutas); // Inverte a ordem dos elementos
-  print_r($frutasInvertidas); // Imprime Array
+  echo "<pre>";
+  var_dump($frutasInvertidas);
+  echo "</pre>";
 
   $frutas = ["maçã", "banana", "laranja"];
   $existeLaranja = in_array("laranja", $frutas); // Retorna true se "laranja" existe no array
-  echo $existeLaranja; // Imprime 1
+  echo $existeLaranja;
 
   $frutas = ["maçã", "banana", "laranja"];
-  $quantidade = count($frutas); // Retorna 3
-  echo $quantidade; // Imprime 3
+  $quantidade = count($frutas);
+  echo $quantidade;
 
 
 
@@ -80,38 +101,49 @@
     "Carol" => 28
   ];
   // Acessando valores por chaves
-  echo $pessoas["Alice"];  // Saída: 25
-  print_r($pessoas); // Imprime Array
+  echo $pessoas["Alice"];
+  echo "<pre>";
+  var_dump($pessoas);
+  echo "</pre>";
 
   $pessoa = ["nome" => "João", "idade" => 25];
   $pessoa["cidade"] = "São Paulo"; // Adiciona a chave "cidade" ao dicionário
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   unset($pessoa["idade"]); // Remove a chave "idade" do dicionário
-  print_r($pessoa); // Imprime Array
+  echo "<pre>";
+  var_dump($pessoa);
+  echo "</pre>";
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   $existeIdade = array_key_exists("idade", $pessoa); // Retorna true se "idade" existe
-  echo $existeIdade; // Imprime 1
+  echo $existeIdade;
 
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   $chaves = array_keys($pessoa); // Retorna um array com as chaves ("nome", "idade", "cidade")
-  print_r($chaves); // Imprime Array
+  echo "<pre>";
+  var_dump($chaves);
+  echo "</pre>";
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   $valores = array_values($pessoa); // Retorna um array com os valores ("João", 25, "São Paulo")
-  print_r($valores); // Imprime Array
+  echo "<pre>";
+  var_dump($valores);
+  echo "</pre>";
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   $pessoaFiltrada = array_filter($pessoa, function ($valor, $chave) {
+    echo $chave;
     return $valor != "São Paulo";
-  }, ARRAY_FILTER_USE_BOTH); // Remove a chave "cidade"
-  print_r($pessoaFiltrada); // Imprime Array
+  }, ARRAY_FILTER_USE_BOTH); // ARRAY_FILTER_USE_KEY
+  echo "<pre>";
+  var_dump($pessoaFiltrada);
+  echo "</pre>";
 
   $pessoa = ["nome" => "João", "idade" => 25, "cidade" => "São Paulo"];
   $quantidade = count($pessoa); // Retorna 3 (número de pares chave-valor)
-  echo $quantidade; // Imprime 3
+  echo $quantidade;
   ?>
 
 </body>
